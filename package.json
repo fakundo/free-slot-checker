@@ -1,0 +1,27 @@
+{
+  "name": "free-slot-checker",
+  "version": "1.0.0",
+  "description": "1. Finds available slot for range of dates 2. Notifies about found slot via Telegram",
+  "main": "index.js",
+  "scripts": {
+    "prepublishOnly": "echo \"Error: publishing is disabled\" && exit 1",
+    "lint": "eslint src",
+    "dev": "nodemon -r dotenv/config src/index.js",
+    "start": "node src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "eslint": "^8.1.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2"
+  },
+  "dependencies": {
+    "app-module-path": "^2.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "node-fetch": "^2.0.0",
+    "set-interval-async": "^2.0.3"
+  }
+}

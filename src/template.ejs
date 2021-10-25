@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+  <script>
+    function start() {
+      window
+        .fetch('/start', { method: 'post' })
+        .then(() => window.location.reload())
+    }
+    function stop() {
+      window
+        .fetch('/stop', { method: 'post' })
+        .then(() => window.location.reload())
+    }
+  </script>
+</head>
+
+<body>
+  <div>
+    <% if (running) { %>
+      <button onclick="stop()">stop</button>
+    <% } else { %>
+      <button onclick="start()">start</button>
+    <% } %>
+  </div>
+  <br>
+
+  <table border="1" cellpadding="10">
+    <% if (freeSlot) { %>
+      <tr>
+        <td>Free slot found</td>
+        <td><%= freeSlot.date %> / <%= freeSlot.time %></td>
+      </tr>
+    <% } %>
+    <tr>
+      <td>Total requests</td>
+      <td><%= stats.requests.total %></td>
+    </tr>
+    <tr>
+      <td>Bad requests</td>
+      <td><%= stats.requests.bad %></td>
+    </tr>
+  </table>
+</body>
+
+</html>
